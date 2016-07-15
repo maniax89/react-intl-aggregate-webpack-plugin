@@ -1,0 +1,21 @@
+{
+  "name": "react-intl-aggregate-webpack-plugin",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Andrew Turgeon",
+  "description": "Aggregates internationalization messages generated from the babel-plugin-react-intl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maniax89/react-intl-aggregate-webpack-plugin"
+  },
+  "scripts": {
+    "build": "babel src/ --out-dir ./"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  }
+}
