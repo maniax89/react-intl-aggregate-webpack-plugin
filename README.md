@@ -36,6 +36,7 @@ var config = {
       messagesPattern: I18N_DIR + 'messages/**/*.json',
       aggregateOutputDir: I18N_DIR + 'aggregate/',
       aggregateFilename: 'en-US'
+      allowDuplicates: false
     })
   ]
 }
@@ -51,3 +52,4 @@ module.exports = config;
 
 - **`aggregateFilename`**: The name of the file to be output that will get `.json` appended to it. Defaults to: `en-US`.
 
+- **`allowDuplicates`**: Allows use of duplicate message ids so long as the defaultMessage matches.  Defaults to: `false`.
