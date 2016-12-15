@@ -14,12 +14,15 @@ ReactIntlAggregatePlugin.prototype.apply = function (compiler) {
                             '../../i18n/aggregate/';
   let aggregateFilename  = this.plugin_options.aggregateFilename ||
                             'en-US';
+  let allowDuplicates    = this.plugin_options.allowDuplicates ||
+                            false;
 
   compiler.plugin('emit', function (compilation, callback) {
     const MESSAGES_PATTERN = path.resolve(__dirname, messagesPattern);
     const AGGREGATE_DIR    = path.resolve(__dirname, aggregateOutputDir);
     const AGGREGATE_FILE   = path.resolve(AGGREGATE_DIR, aggregateFilename +
                               '.json');
+    const ALLOW_DUPLICATES = allowDuplicates;
 
     console.log('Messages pattern: ' + MESSAGES_PATTERN);
     console.log('Aggregate dir: ' + AGGREGATE_DIR)
@@ -28,8 +31,17 @@ ReactIntlAggregatePlugin.prototype.apply = function (compiler) {
       .map((file) => JSON.parse(file))
       .reduce((collection, descriptors) => {
         descriptors.forEach(({id, defaultMessage, description}) => {
-          if (collection.hasOwnProperty(id)) {
+          if (
+            collection.hasOwnProperty(id) &&
+            !ALLOW_DUPLICATES
+          ) {
             throw new Error(`Duplicate message id: ${id}`);
+          }
+          else if (
+            collection.hasOwnProperty(id) &&
+            collection[id].defaultMessage &&
+          ) {
+            throw new Error(`Message with id: ${id} already exists, and defaultMessage does not match`);
           }
           collection[id] = {};
           collection[id]["defaultMessage"] = defaultMessage;
