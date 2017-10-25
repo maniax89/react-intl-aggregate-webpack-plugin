@@ -28,7 +28,7 @@ ReactIntlAggregatePlugin.prototype.apply = function (compiler) {
       .map((file) => JSON.parse(file))
       .reduce((collection, descriptors) => {
         descriptors.forEach(({id, defaultMessage, description}) => {
-          if (collection.hasOwnProperty(id)) {
+          if (collection.hasOwnProperty(id) && collection[id].description !== description) {
             throw new Error(`Duplicate message id: ${id}`);
           }
           collection[id] = {};
