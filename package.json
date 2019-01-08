@@ -9,12 +9,14 @@
     "url": "https://github.com/maniax89/react-intl-aggregate-webpack-plugin"
   },
   "scripts": {
-    "build": "babel src/ --out-dir ./"
+    "build": "babel src/ --out-dir ./",
+    "release": "release-it"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3"
+    "@babel/preset-env": "^7.2.3",
+    "release-it": "^9.6.4"
   },
   "dependencies": {
     "mkdirp": "^0.5.1"
