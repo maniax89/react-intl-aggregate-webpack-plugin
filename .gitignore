@@ -75,6 +75,8 @@ build/Release
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
+.npmrc
+
 ### OSX template
 .DS_Store
 .AppleDouble
@@ -100,5 +102,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
