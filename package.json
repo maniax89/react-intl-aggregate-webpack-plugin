@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "babel src/ --out-dir ./",
-    "release": "release-it"
+    "release": "npm run build && release-it"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
