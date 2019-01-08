@@ -1,6 +1,6 @@
 {
   "name": "react-intl-aggregate-webpack-plugin",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Andrew Turgeon",
   "description": "Aggregates internationalization messages generated from the babel-plugin-react-intl",
