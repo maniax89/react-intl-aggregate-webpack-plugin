@@ -15,7 +15,7 @@ ReactIntlAggregatePlugin.prototype.apply = function (compiler) {
   let aggregateFilename  = this.plugin_options.aggregateFilename ||
                             'en-US';
 
-  compiler.plugin('emit', function (compilation, callback) {
+  compiler.hooks.emit.tapAsync('ReactIntlAggregatePlugin', (compilation, callback) => {
     const MESSAGES_PATTERN = path.resolve(__dirname, messagesPattern);
     const AGGREGATE_DIR    = path.resolve(__dirname, aggregateOutputDir);
     const AGGREGATE_FILE   = path.resolve(AGGREGATE_DIR, aggregateFilename +
